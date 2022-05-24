@@ -1,5 +1,5 @@
-![img](/Examples/image_input.png)
-![img](/Examples/image_output.png)
+![img](/Examples/image_girl_input.png)
+![img](/Examples/image_girl_output.png)
 
 # Information
 This application will take an input image and output a distorted image that will be based on user parameters

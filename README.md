@@ -1,3 +1,6 @@
+![img](/Examples/koi_fish_input.png)
+![img](/Examples/koi_fish_output.png)
+
 # Information
 This application will take an input image and output a distorted image that will be based on user parameters
 

@@ -19,3 +19,4 @@ This application will take an input image and output a distorted image that will
 - [ ] Process images in real time
 - [ ] Tranform controls
 - [ ] Drag and Drop New input photo
+- [ ] Matieral editor

@@ -15,30 +15,60 @@
 ## Status: Protype
 ##################################################
 
-from PIL import Image                       # Image processeing
+from PIL import Image, ImageEnhance         # Image processeing
 import argparse                             # Command line arguments
 from BlendModes import SIK_Blends as blends # blend modes
 import blend_modes as bm                    # for testing
-
+import numpy as np                          # for image processing
 
 # Command line arguments
 parser = argparse.ArgumentParser(description='Crush an image')
 parser.add_argument('-i', '--image', help='Image to crush', required=True)
-parser.add_argument('-c', '--crusher', help='Image to crush with', required=True)
 parser.add_argument('-o', '--output', help='Output file', required=False)
-parser.add_argument('-s', '--show', help='Blend mode', required=False)
+parser.add_argument('-c', '--crusher', help='Image to crush with', required=True, nargs=argparse.ONE_OR_MORE)
+parser.add_argument('-s', '--show', help='Blend mode', required=False, type=bool, default=False, nargs=argparse.ONE_OR_MORE)
+parser.add_argument('-op',  '--opacity', help='Opacity', required=False, type=float, default=1.0, nargs=argparse.ONE_OR_MORE)
+parser.add_argument('-co', '--contrast', help='Contrast', required=False, type=float, default=1.0, nargs=argparse.ONE_OR_MORE)
+parser.add_argument('-l', '--layers', help='layers', required=False, type=int, default=-1)
+
 args = parser.parse_args()
 
+crushers = ["../Crushers/crusher7.png", "../Crushers/crusher2.png", "../Crushers/crusher3.png", "../Crushers/crusher4.png"]
+opacitys = [1.0, 0.5, 0.25, 0.1]
+contrasts = [1.0, 1.0, 1.0, 1.0]
+layers = 4
+
+if(args.layers != -1):
+    layers = args.layer
+    crusher = args.crusher
+    opacitys = args.opacity
+    contrasts = args.contrast
+
+
+# base image to modify
 with Image.open(args.image) as image:
-    with Image.open(args.crusher) as crusher:
+    imgInFloat = np.array(image).astype(np.float32)
+    
+    # for each layer apply effects
+    for i in range(layers):
+        with Image.open(crushers[i]) as crusher:
+            
+            # Resize to match input size
+            crusher = crusher.resize(image.size)
+            
+            # apply contrast
+            if(contrasts[i] != 1.0):
+                enhancer = ImageEnhance.Contrast(crusher)
+                crusher = enhancer.enhance(contrasts[i])
 
-        # subtract the images
-        crusher = crusher.resize(image.size)
+            # convert to np array    
+            imgLayerFloat = np.array(crusher).astype(np.float32)
 
-        newImage = blends.subtract(image, crusher, 1.0)
+            # subtract the images
+            image = blends.subtract(imgInFloat, imgLayerFloat, opacitys[i])
         
         if args.show:
-            newImage.show()
-        
-        if args.output:
-            newImage.save(args.output)
+            image.show()
+
+    if args.output:
+        image.save(args.output)

@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 
 class SIK_Blends:
-    def subtract(imgInFloat : np.array, imgLayerFloat : np.array, opacity : float = 1.0) -> Image:
+    def subtract(imgInFloat : np.array, imgLayerFloat : np.array, opacity : float = 1.0) -> np.array:
         """
         Subtracts imgLayer from imgIn and returns the result.
         """
@@ -15,9 +15,7 @@ class SIK_Blends:
         # subtract the images
         npImage = imgInFloat[:, :, :3] - imgLayerFloat[:,:,:3]
         
-        # apply opacity
+        # remove negative values
         npImage[npImage < 0.0] *= 0
         
-        # convert the image back to a PIL image
-
         return npImage

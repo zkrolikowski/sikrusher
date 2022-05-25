@@ -7,6 +7,6 @@ This application will take an input image and output a distorted image that will
 
 ## Todo
 - [ ] Creating a command line image crusher with Python
-- [ ] Create a GUI application that takes user input
-- [ ] Procedurally generate crushers
-- [ ] Process the image in real time
+- [ ] Create a GUI application
+- [ ] Procedurally generate crusher pngs
+- [ ] Process images in real time

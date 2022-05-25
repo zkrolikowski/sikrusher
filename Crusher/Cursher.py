@@ -5,7 +5,7 @@
 ##################################################
 ## MIT
 ##################################################
-## Author: Zack Krolikowski and Eli Alvarado
+## Author: Zack Krolikowski and Eli Alvarado and Kenny Chau
 ## Copyright: Copyright 2022, sikrusher
 ## Credits: [TODO]
 ## License: MIT

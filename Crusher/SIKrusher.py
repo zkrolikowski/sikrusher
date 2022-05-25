@@ -65,7 +65,8 @@ with Image.open(args.image) as image:
             imgLayerFloat = np.array(crusher).astype(np.float32)
 
             # subtract the images
-            imgInFloat = blends.subtract(imgInFloat, imgLayerFloat, opacitys[i])
+            # imgInFloat = blends.subtract(imgInFloat, imgLayerFloat, opacitys[i])
+            imgInFloat = blends.darker_color(imgInFloat, imgLayerFloat, opacitys[i])
         
         if args.show:
             imgInFloat = imgInFloat.astype(np.uint8)

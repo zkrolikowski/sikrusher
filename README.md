@@ -20,3 +20,4 @@ This application will take an input image and output a distorted image that will
 - [ ] Tranform controls
 - [ ] Drag and Drop New input photo
 - [ ] Matieral editor
+- [ ] Organize Files

@@ -25,3 +25,7 @@ This application will take an input image and output a distorted image that will
 - [ ] Drag and Drop New input photo
 - [ ] Matieral editor
 - [ ] Organize Files
+
+
+## Additional Functionality
+- [ ] Hex image manipulation 

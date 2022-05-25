@@ -5,8 +5,17 @@
 ## Information
 This application will take an input image and output a distorted image that will be based on user parameters
 
-## Todo
+## MVP
 - [ ] Creating a command line image crusher with Python
+    - [x] Subtract Filter 
+    - [ ] Other Filters
 - [ ] Create a GUI application
+  - [ ] Mockup 
+  - [ ] Functional GUI
+  - [ ] Interfaceing with tool
+
+## Goals
 - [ ] Procedurally generate crusher pngs
 - [ ] Process images in real time
+- [ ] Tranform controls
+- [ ] Drag and Drop New input photo

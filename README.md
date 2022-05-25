@@ -7,7 +7,11 @@ This application will take an input image and output a distorted image that will
 
 ## MVP
 - [ ] Creating a command line image crusher with Python
-    - [x] Subtract Filter 
+    - [x] Subtract 
+    - [ ] Difference - Soi
+    - [ ] Saturation - Soi
+    - [ ] Linear Burn - sneps
+    - [ ] Darker Color - sneps
     - [ ] Other Filters
 - [ ] Create a GUI application
   - [ ] Mockup 

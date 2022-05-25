@@ -19,7 +19,5 @@ class SIK_Blends:
         npImage[npImage < 0.0] *= 0
         
         # convert the image back to a PIL image
-        npImage = npImage.astype(np.uint8)
-        newImage = Image.fromarray(npImage)
-        
-        return newImage
+
+        return npImage

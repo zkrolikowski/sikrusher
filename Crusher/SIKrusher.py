@@ -33,8 +33,8 @@ parser.add_argument('-l', '--layers', help='layers', required=False, type=int, d
 
 args = parser.parse_args()
 
-crushers = ["../Crushers/crusher7.png", "../Crushers/crusher2.png", "../Crushers/crusher3.png", "../Crushers/crusher4.png"]
-opacitys = [1.0, 0.5, 0.25, 0.1]
+crushers = ["Crushers/crusher1.png", "Crushers/crusher2.png", "Crushers/crusher3.png", "Crushers/crusher4.png"]
+opacitys = [1.0, 0.5, 0.5, 0.25]
 contrasts = [1.0, 1.0, 1.0, 1.0]
 layers = 4
 
@@ -65,10 +65,16 @@ with Image.open(args.image) as image:
             imgLayerFloat = np.array(crusher).astype(np.float32)
 
             # subtract the images
-            image = blends.subtract(imgInFloat, imgLayerFloat, opacitys[i])
+            imgInFloat = blends.subtract(imgInFloat, imgLayerFloat, opacitys[i])
         
         if args.show:
+            imgInFloat = imgInFloat.astype(np.uint8)
+            image = Image.fromarray(imgInFloat)
+        
             image.show()
 
     if args.output:
+        imgInFloat = imgInFloat.astype(np.uint8)
+        image = Image.fromarray(imgInFloat)
+        
         image.save(args.output)

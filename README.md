@@ -1,10 +1,11 @@
+# sikrusher
 ![img](/Examples/image_girl_input.png)
 ![img](/Examples/image_girl_output.png)
 
-# Information
+## Information
 This application will take an input image and output a distorted image that will be based on user parameters
 
-# Todo
+## Todo
 - [ ] Creating a command line image crusher with Python
 - [ ] Create a GUI application that takes user input
 - [ ] Procedurally generate crushers

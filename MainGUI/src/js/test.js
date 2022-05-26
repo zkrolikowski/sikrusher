@@ -1,1 +1,0 @@
-document.body.innerHTML = "<h1>pog look at our cat gif :)</h1>"

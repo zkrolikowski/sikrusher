@@ -29,7 +29,7 @@ class SIK_Blends:
 
         # put both images into an array
         imageArr = np.array((imgInFloat[:, :, :3],imgLayerFloat[:,:,:3]))
-
+        
         # get the darkest value from both arrays and put into return image
         npImage = np.minimum.reduce(imageArr)
 

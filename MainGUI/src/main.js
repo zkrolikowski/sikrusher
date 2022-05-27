@@ -1,15 +1,7 @@
 // Modules to control application life and create native browser window
-import { ipcMain } from 'electron';
-
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const { isMainThread } = require('worker_threads')
-
-ipcMain.handle('read-file', async (event, path) => {
-  if (!pathIsOK(path)) throw new Error('forbidden')
-  const buf = await fs.promises.readFile(path)
-  return buf
-})
 
 function createWindow() {
 

@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain, dialog } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog, remote } = require('electron')
 const path = require('path') //used for preload
 
 // download the edited image applying all filters.
@@ -9,8 +9,8 @@ function downloadImage() {
 
 // opens up the application
 function createWindow() {
-  // The main GUI application settings
-  const mainWindow = new BrowserWindow({
+    // The main GUI application settings
+    const mainWindow = new BrowserWindow({
     width: 1400,
     height: 900,
     minHeight: 530,
@@ -95,7 +95,9 @@ function maxmimizeProgram() {
 // allow user to change the image to edit
 async function addImage() {
   // opens the file explorer searching for image formats. will return image
-  const { canceled, filePaths } = await dialog.showOpenDialog({
+  const { canceled, filePaths } =  await dialog.showOpenDialog(
+    BrowserWindow.getFocusedWindow(),
+    {
     properties: ["openFile"],
     filters: [{ name: "Images", extensions: ["png", "jpg", "jpeg"] }]
   });

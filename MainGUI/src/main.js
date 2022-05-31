@@ -93,7 +93,7 @@ function maxmimizeProgram() {
 }
 
 // allow user to change the image to edit
-async function addImage() {
+async function addImage(event, oldPath) {
   // opens the file explorer searching for image formats. will return image
   const { canceled, filePaths } =  await dialog.showOpenDialog(
     BrowserWindow.getFocusedWindow(),
@@ -102,7 +102,7 @@ async function addImage() {
     filters: [{ name: "Images", extensions: ["png", "jpg", "jpeg"] }]
   });
   if (canceled)
-    return "../resources/placeholder.png"
+    return oldPath;
   else
     return filePaths[0]
 }

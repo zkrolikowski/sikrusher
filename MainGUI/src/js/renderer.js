@@ -3,7 +3,8 @@
 const closeWinButton = document.getElementById('close-button')
 const minimizeWinButton = document.getElementById('min-button')
 const maximizeWinButton = document.getElementById('max-button')
-const addImageButton = document.getElementById('add-img-button')
+const addImageButton1 = document.getElementById('add-img-button-1')
+const addImageButton2 = document.getElementById('add-img-button-2')
 const userImagePath = document.getElementById('user-image')
 const downloadImageButton = document.getElementById('download-img-button')
 
@@ -24,8 +25,14 @@ maximizeWinButton.addEventListener('click', () => {
 });
 
 // allow the user to add their own image to the app
-addImageButton.addEventListener('click', async () => {
-    const filePath = await window.electronAPI.addImage()
+addImageButton1.addEventListener('click', async () => {
+    const filePath = await window.electronAPI.addImage(userImagePath.src)
+    userImagePath.src = filePath //change the image
+});
+
+// allow the user to add their own image to the app
+addImageButton2.addEventListener('click', async () => {
+    const filePath = await window.electronAPI.addImage(userImagePath.src)
     userImagePath.src = filePath //change the image
 });
 

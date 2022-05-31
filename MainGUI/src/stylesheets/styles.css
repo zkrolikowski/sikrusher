@@ -203,7 +203,7 @@ body {
 }
 
 .image-button{
-  background-color: transparent;
+    background-color: transparent;
   border: none;           
   cursor: pointer;                 
   vertical-align: middle;

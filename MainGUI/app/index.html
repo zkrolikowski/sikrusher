@@ -8,29 +8,53 @@
 
 </head>
 <body>    
+
     <header id="titlebar">
         <div id="drag-region">
   
           <div id="window-title">
+            <!-- <span>sikrusher</span> -->
           </div>
   
           <div id="window-controls">
             <div class="button" id="min-button">
-                <img class="icon" srcset="../resources/icons/min-w-10.png 1x, ../resources/icons/min-w-12.png 1.25x, ../resources/icons/min-w-15.png 1.5x, ../resources/icons/min-w-15.png 1.75x, ../resources/icons/min-w-20.png 2x, ../resources/icons/min-w-20.png 2.25x, ../resources/icons/min-w-24.png 2.5x, ../resources/icons/min-w-30.png 3x, ../resources/icons/min-w-30.png 3.5x" draggable="false" />
+                <img class="icon" srcset="../resources/icons/min10.png 1x" draggable="false" />
             </div>
             <div class="button" id="max-button">
-                <img class="icon" id="mxr" srcset="../resources/icons/max-w-10.png 1x, ../resources/icons/max-w-12.png 1.25x, ../resources/icons/max-w-15.png 1.5x, ../resources/icons/max-w-15.png 1.75x, ../resources/icons/max-w-20.png 2x, ../resources/icons/max-w-20.png 2.25x, ../resources/icons/max-w-24.png 2.5x, ../resources/icons/max-w-30.png 3x, ../resources/icons/max-w-30.png 3.5x" draggable="false" />
+                <img class="icon" id="mxr" srcset="../resources/icons/max10.png 1x" draggable="false" />
             </div>
             <div class="button close-button" id="close-button">
-                <img onclick="quitProgram()" class="icon" srcset="../resources/icons/close-w-10.png 1x, ../resources/icons/close-w-12.png 1.25x, ../resources/icons/close-w-15.png 1.5x, ../resources/icons/close-w-15.png 1.75x, ../resources/icons/close-w-20.png 2x, ../resources/icons/close-w-20.png 2.25x, ../resources/icons/close-w-24.png 2.5x, ../resources/icons/close-w-30.png 3x, ../resources/icons/close-w-30.png 3.5x" draggable="false" />
+                <img class="icon" srcset="../resources/icons/exit10.png 1x" draggable="false" />
             </div>
           </div>
         </div>
     </header>
-    
-    <script src="../src/js/index.js">
-    </script>
 
+    
+    <div class="mainGUI">
+        <div class="leftSide">
+            <!-- the main image for crunching -->
+            <div class="user-image-div">
+                <img id=user-image src="..\resources\placeholder.png" height=auto width="500" draggable="false">
+            </div>
+            
+            <!-- icons to allow user to change the image or download resulting image -->
+            <div class="img-file-icons">
+                <button type="button" class="icon-button" id="add-img-button"> 
+                    <img src="..\resources\icons\plus.png" height ="50" width="50" draggable="false"/>
+                </button>
+                <button type="button" class="icon-button" id="download-img-button"> 
+                    <img src="..\resources\icons\download.png" height ="50" width="50" draggable="false"/>
+                </button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <script src="../src/js/renderer.js"></script>
 </body>
 </html>
 

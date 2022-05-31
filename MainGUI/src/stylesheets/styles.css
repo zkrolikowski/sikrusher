@@ -30,7 +30,7 @@ body {
 #titlebar {
   display: block;
   position: fixed;
-  height: 32px;
+  height: 30px;
   width: calc(100% - 2px);
 }
 
@@ -56,8 +56,9 @@ body {
   -webkit-app-region: drag;
 }
 
+/* text color for the title bar text */
 #titlebar {
-  color: #FFF;
+  color: rgb(255, 255, 255);
 }
 
 #titlebar #drag-region {
@@ -72,7 +73,7 @@ body {
   margin-left: 8px;
   overflow: hidden;
   font-family: "Segoe UI", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .maximized #window-title {
@@ -91,7 +92,7 @@ body {
   grid-template-columns: repeat(3, 46px);
   position: absolute;
   top: 0;
-  right: 0;
+  right: -5px;
   height: 100%;
 }
 
@@ -130,11 +131,11 @@ body {
 }
 
 #close-button:hover {
-  background: #E81123 !important;
+  background: #e2414e !important;
 }
 
 #close-button:active {
-  background: #F1707A !important;
+  background: #e96e79 !important;
 }
 #close-button:active .icon {
   filter: invert(1);
@@ -160,4 +161,48 @@ body {
 
 .maximized #max-button {
   display: none;
+}
+
+.mainGUI{
+  display: grid;
+  padding: 30px;
+}
+
+.leftSide{
+  grid-row: 1;
+  display:flex;
+  flex-direction: column-reverse;
+}
+
+.user-image-div{
+  flex: 2;
+}
+
+#user-image{
+  border: 4px solid #029091;
+  border-radius: 20px;
+}
+
+.img-file-icons{
+  flex: 1 ;
+}
+
+/* The add-button and download-picture icons */
+.icon-button{
+  background-color: transparent;
+  border: none;           
+  cursor: pointer;                 
+  vertical-align: middle;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-drag: none;
+  user-select: none;
+}
+
+.icon-button:hover{
+  filter:invert();
+  width: 50px;
 }

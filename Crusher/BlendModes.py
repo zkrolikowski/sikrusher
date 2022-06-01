@@ -34,3 +34,33 @@ class SIK_Blends:
         npImage = np.minimum.reduce(imageArr)
 
         return npImage
+
+    #multiply the RGB channels of the two images
+    def antcolony(imgInFloat : np.array, imgLayerFloat : np.array, opacity : float = 1.0) -> np.array:
+        """
+        square both and subtracts
+        """
+
+        assert(opacity >= 0.0 and opacity <= 1.0)
+        
+        # convert to float
+        imgLayerFloat *= opacity
+
+        # square the images then subtract rbg channels
+        npImage = imgInFloat[:, :, :3]**2 - imgLayerFloat[:,:,:3]**2
+
+        return npImage
+
+    # start with base image then scale image up but dont add pixels, leave blank space and keep layer over each other
+    def shear (imgInFloat : np.array, imgLayerFloat : np.array, opacity : float = 1.0) -> np.array:
+        """
+        Multiplies imgLayer by imgIn and returns the result.
+        """
+
+        assert(opacity >= 0.0 and opacity <= 1.0)
+        
+        # convert to float
+        imgLayerFloat *= opacity
+
+        # Todo
+        #return npImage

@@ -8,24 +8,20 @@ This application will take an input image and output a distorted image that will
 ## MVP
 - [ ] Creating a command line image crusher with Python
     - [x] Subtract 
-    - [ ] Difference - Soi
-    - [ ] Saturation - Soi
-    - [ ] Linear Burn - sneps
-    - [ ] Darker Color - sneps
+    - [ ] Difference
+    - [ ] Saturation
+    - [ ] Linear Burn
+    - [ ] Darker Color
     - [ ] Other Filters
 - [ ] Create a GUI application
-  - [ ] Mockup 
+  - [x] Mockup 
   - [ ] Functional GUI
   - [ ] Interfaceing with tool
 
 ## Goals
 - [ ] Procedurally generate crusher pngs
+- [ ] Switch to Rust for the backend 
 - [ ] Process images in real time
 - [ ] Tranform controls
 - [ ] Drag and Drop New input photo
-- [ ] Matieral editor
-- [ ] Organize Files
-
-
-## Additional Functionality
-- [ ] Hex image manipulation 
+- [ ] Material editor

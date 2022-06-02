@@ -75,10 +75,11 @@ async function fitImage()
   const titleBarHeight = 30
   const iconHeight = 100
   const paddenWidth = 30 + 30 // Left + right side padden
+  const rightSideWidth = 630
 
   const windowSize = await window.electronAPI.getWindowSize()
 
-  const validImageSpace = [windowSize[0] - (paddenWidth + (windowSize[0]/2)), 
+  const validImageSpace = [windowSize[0] - (paddenWidth + rightSideWidth), 
                            windowSize[1] - (titleBarHeight + iconHeight)] 
 
   userImage.style.height = userImage.naturalHeight;

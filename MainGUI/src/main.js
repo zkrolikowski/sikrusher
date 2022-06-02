@@ -55,6 +55,7 @@ app.whenReady().then(() => {
   ipcMain.on('s-maximize-Program', maxmimizeProgram)
   ipcMain.handle('s-add-image', addImage)
   ipcMain.on('s-download-image', downloadImage)
+  ipcMain.handle('r-get-window-size', getWindowSize)
 
   // create the window
   createWindow()
@@ -113,4 +114,8 @@ async function addImage(event, oldPath) {
 // download the edited image applying all filters.
 function downloadImage() {
   console.log("download meow!")
+}
+
+function getWindowSize(){
+  return BrowserWindow.getFocusedWindow().getSize();
 }

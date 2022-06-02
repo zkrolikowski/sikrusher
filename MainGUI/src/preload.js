@@ -6,5 +6,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   minimizeProgram: () => ipcRenderer.send('s-minimize-program'),
   maximizeProgram: () => ipcRenderer.send('s-maximize-Program'),
   addImage: (oldPath) => ipcRenderer.invoke('s-add-image', oldPath),
-  downloadImage: () => ipcRenderer.send('s-download-image')
+  downloadImage: () => ipcRenderer.send('s-download-image'),
+  getWindowSize: () => ipcRenderer.invoke('r-get-window-size'),
 })

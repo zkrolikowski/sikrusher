@@ -5,7 +5,7 @@ const minimizeWinButton = document.getElementById('min-button')
 const maximizeWinButton = document.getElementById('max-button')
 const addImageButton1 = document.getElementById('add-img-button-1')
 const addImageButton2 = document.getElementById('add-img-button-2')
-const userImagePath = document.getElementById('user-image')
+const userImage = document.getElementById('user-image')
 const downloadImageButton = document.getElementById('download-img-button')
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -30,20 +30,27 @@ maximizeWinButton.addEventListener('click', () => {
 
 // Change the image by double clicking the current image
 addImageButton1.addEventListener('dblclick', async () => {
-    const filePath = await window.electronAPI.addImage(userImagePath.src)
-    userImagePath.src = filePath //change the image
+    const filePath = await window.electronAPI.addImage(userImage.src)
+    userImage.src = filePath //change the image
 });
 
 // Change the image by clicking the add image button
 addImageButton2.addEventListener('click', async () => {
-    const filePath = await window.electronAPI.addImage(userImagePath.src)
-    userImagePath.src = filePath //change the image
+    const filePath = await window.electronAPI.addImage(userImage.src)
+    userImage.src = filePath //change the image
 });
 
 // Download the current rendered image
 downloadImageButton.addEventListener('click', () => {
     window.electronAPI.downloadImage()
 });
+
+// userImage.addEventListener('load',  () => {
+//   console.log("mmoew22")
+// })
+//l
+
+userImage.addEventListener('load', fitImage)
 
 //========================================
 //             JS FUNCTIONS
@@ -59,3 +66,39 @@ for (i = 0; i < coll.length; i++) {
       }
     });
   }
+
+async function fitImage()
+{
+  const titleBarHeight = 30
+  const iconHeight = 100
+  const paddenWidth = 30 + 30 // Left + right side padden
+
+
+  const windowSize = await window.electronAPI.getWindowSize()
+
+  const validImageSpace = [windowSize[0] - (paddenWidth + (windowSize[0]/2)), 
+                           windowSize[1] - (titleBarHeight + iconHeight)] 
+  
+  console.log("window Size: " + windowSize.toString() + "\nvalidImageSpace: " + validImageSpace.toString())
+
+  userImage.style.height = userImage.naturalHeight;
+  userImage.style.height = userImage.naturalWidth;
+
+  console.log("==============================")
+  const scalerHeight = validImageSpace[1] / userImage.naturalHeight;
+  const scalerWidth = validImageSpace[0] / userImage.naturalWidth;
+
+  console.log(scalerHeight.toString() + " " + scalerWidth.toString())
+
+  if(scalerHeight < scalerWidth)
+  {
+    userImage.style.height = await (userImage.naturalHeight * scalerHeight).toString() + 'px'
+    userImage.style.width = await(userImage.naturalWidth * scalerHeight).toString() + 'px';
+  }
+  else
+  {
+    userImage.style.height = await (userImage.naturalHeight * scalerWidth).toString() + 'px'
+    userImage.style.width = await (userImage.naturalWidth * scalerWidth).toString() + 'px';
+  }
+
+}

@@ -10,6 +10,8 @@ const downloadImageButton = document.getElementById('download-img-button')
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
+window.onresize = fitImage
+
 //========================================
 //        PRELOAD SIGNAL FUNCTIONS
 //========================================
@@ -52,6 +54,7 @@ downloadImageButton.addEventListener('click', () => {
 
 userImage.addEventListener('load', fitImage)
 
+
 //========================================
 //             JS FUNCTIONS
 //========================================
@@ -73,32 +76,26 @@ async function fitImage()
   const iconHeight = 100
   const paddenWidth = 30 + 30 // Left + right side padden
 
-
   const windowSize = await window.electronAPI.getWindowSize()
 
   const validImageSpace = [windowSize[0] - (paddenWidth + (windowSize[0]/2)), 
                            windowSize[1] - (titleBarHeight + iconHeight)] 
-  
-  console.log("window Size: " + windowSize.toString() + "\nvalidImageSpace: " + validImageSpace.toString())
 
   userImage.style.height = userImage.naturalHeight;
   userImage.style.height = userImage.naturalWidth;
 
-  console.log("==============================")
-  const scalerHeight = validImageSpace[1] / userImage.naturalHeight;
-  const scalerWidth = validImageSpace[0] / userImage.naturalWidth;
-
-  console.log(scalerHeight.toString() + " " + scalerWidth.toString())
+  const scalerHeight = validImageSpace[1] / userImage.naturalHeight
+  const scalerWidth = validImageSpace[0] / userImage.naturalWidth
 
   if(scalerHeight < scalerWidth)
   {
     userImage.style.height = await (userImage.naturalHeight * scalerHeight).toString() + 'px'
-    userImage.style.width = await(userImage.naturalWidth * scalerHeight).toString() + 'px';
+    userImage.style.width = await(userImage.naturalWidth * scalerHeight).toString() + 'px'
   }
   else
   {
     userImage.style.height = await (userImage.naturalHeight * scalerWidth).toString() + 'px'
-    userImage.style.width = await (userImage.naturalWidth * scalerWidth).toString() + 'px';
+    userImage.style.width = await (userImage.naturalWidth * scalerWidth).toString() + 'px'
   }
 
 }

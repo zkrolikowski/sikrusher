@@ -117,5 +117,7 @@ function downloadImage() {
 }
 
 function getWindowSize(){
+  if(BrowserWindow.getFocusedWindow() == null)
+    return [1400, 900]
   return BrowserWindow.getFocusedWindow().getSize();
 }
